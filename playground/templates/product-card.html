@@ -1,0 +1,16 @@
+{% load static %}
+
+    <div class='product-card'>
+        
+        {% include 'author_mini.html' with author=product.author %}
+
+        <a href="{% url 'single_product' product.id %}">
+            <img src= "{% static '/img/'|add:product.image %}" />
+            <p>{{ product.id }}</p>
+            <p>{{ product.price }} €</p>
+            <p>{{ product.description }}</p>
+            <p>{{ product.image }}</p>
+            <p>{{ product.date_created }}</p>
+            <p> nº de comments</p>
+        </a>
+    </div>

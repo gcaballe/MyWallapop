@@ -1,0 +1,23 @@
+div.product-card{
+    background-color: rgb(195, 208, 195);
+    height: 600px;
+    width: 400px;
+    overflow: hidden;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.product-card img{
+    object-fit: contain;
+    width: 100%;
+}
+
+div.products-grid{
+    display: flex;
+}
+
+div.products-card{
+    flex: 4;
+}

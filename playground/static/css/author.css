@@ -1,0 +1,18 @@
+.author-mini {
+    display: inline-block;
+    height: 60px;
+    width: 150px;
+    background-color: red;
+}
+
+.author-mini img{
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    overflow: auto;
+}
+
+.author-mini p.username {
+    display: inline-block;
+    font-size: 40px;
+}

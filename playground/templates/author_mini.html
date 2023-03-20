@@ -1,0 +1,18 @@
+{% load static %}
+
+<a href="{% url 'author' author.id %}"></a>
+    <div class='author-mini row'>
+        <img class="col-4" src="{% static '/img/'|add:author.avatar %}" />
+        <div class="col-8">
+            <div class="row">
+                <!-- <p>{{ author.avatar }}</p> -->
+                <div class="col-12">
+                    <p class="username">{{ author.username }}</p>
+                </div>
+                <div class="col-12">
+                    <p class="city">{{ author.city }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>

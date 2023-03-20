@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(177, 246, 177);
+}
+
+.mylogo img {
+    height: 100px;
+    width: 100px;
+    overflow: auto;
+}
+
+nav .login-icon {
+    height: 100px;
+}
