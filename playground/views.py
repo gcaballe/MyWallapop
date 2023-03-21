@@ -15,6 +15,13 @@ def main_page(request):
 
     products = Product.objects.all()
 
+    for p in products:
+        num_comments = len(p.getComments())
+        comments = p.getComments()
+        p = p.__dict__
+        p['comments_len'] = num_comments
+        p['comments'] = comments
+
     usersession = request.session.get('usersession','')
 
     return render(request, 'main.html', { 'products': products, 'usersession': usersession} )

@@ -23,6 +23,9 @@ class Product(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
+    def getComments(self):
+        return Comment.objects.filter(product=self.id).all()
+
     def __str__(self):
         return self.name
     
@@ -31,7 +34,4 @@ class Comment(models.Model):
     id = models.AutoField(primary_key=True)
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     product = models.ForeignKey(Product, null=True, on_delete=models.SET_NULL)
-    text = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.id
+    text = models.CharField(max_length=100)

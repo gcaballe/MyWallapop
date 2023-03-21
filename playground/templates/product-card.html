@@ -6,11 +6,15 @@
 
         <a href="{% url 'single_product' product.id %}">
             <img src= "{% static '/img/'|add:product.image %}" />
-            <p class="product-name">{{ product.id }}</p>
             <p>{{ product.price }} €</p>
             <p>{{ product.description }}</p>
-            <p>{{ product.image }}</p>
             <p>{{ product.date_created }}</p>
-            <p> nº de comments</p>
+
+            <div>
+                <p> {{product.comments_len}} comentarios</p>
+                {% for c in product.comments %}
+                    <p>c.text</p>
+                {% endfor %}
+            </div>
         </a>
     </div>
