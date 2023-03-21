@@ -15,9 +15,6 @@ div.product-card{
 }
 
 div.products-grid{
-    display: flex;
-}
-
-div.products-card{
-    flex: 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }

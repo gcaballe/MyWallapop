@@ -1,18 +1,21 @@
 .author-mini {
-    display: inline-block;
+    display: flex;
+    justify-content: stretch;
     height: 60px;
-    width: 150px;
-    background-color: red;
+    width: 100%;
+    margin: 10px;
 }
 
 .author-mini img{
-    display: inline-block;
+    
     height: 60px;
-    width: 60px;
+    padding: 0px;
+    max-width: 60px;
     overflow: auto;
+    margin-right: 30px;
 }
 
-.author-mini p.username {
-    display: inline-block;
-    font-size: 40px;
+.author-mini p{
+    height: 50%;
+    margin: 0px;
 }

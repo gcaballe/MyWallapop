@@ -8,6 +8,30 @@ body{
     overflow: auto;
 }
 
-nav .login-icon {
+.mylogo span {
+    font-size: 50px;
+    margin: 20px;
+    vertical-align: middle;
+    font-family: "Tahoma";
+}
+
+nav .login-icon{
+    margin-top: -20px;
+    border-radius: 150px;
+    vertical-align: middle;
+    justify-content: center;
+    background-color: beige;
+}
+
+nav .login-icon img{
+    position: relative;
+    overflow: auto;
     height: 100px;
+}
+
+.modal-centerscreen{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

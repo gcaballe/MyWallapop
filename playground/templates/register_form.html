@@ -1,0 +1,27 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}" >
+<form id="form_register_user" action="../register_user/" method="POST">
+    {% csrf_token %}
+    <div class="container">
+      <h1>Regístrate</h1>
+      <hr>
+  
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="username" name="username" id="username" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Password" name="psw" id="psw" required>
+  
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repite Password" name="psw-repeat" id="psw-repeat" required>
+      <hr>
+  
+      <button type="submit" class="btn registerbtn">Registra</button>
+
+      <button onClick="hide_register()" class="btn cancelbtn">Cierra</button>
+    </div>
+  
+    <div class="container signin">
+      <p>Ya tienes cuenta? <a onClick="gotoLogin()" href=".">Loguea!</a>.</p>
+    </div>
+</form>

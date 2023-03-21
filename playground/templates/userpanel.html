@@ -22,13 +22,10 @@
 
         {% include 'navbar.html' %}
 
-        <div class="products-grid">
-        {% for i in products %}
+        
+        {{user.username}}
+        {{user.password}}
 
-            {% include 'product-card.html' with product=i %}
-
-        {% endfor %}
-        </div>
         
         <div class="modal-centerscreen">
         {% include 'register_form.html' %}

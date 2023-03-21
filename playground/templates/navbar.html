@@ -1,15 +1,18 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar  navbar-dark bg-dark">
     
-    <a class="mylogo" class="navbar-brand" href=".">
+    <a class="mylogo" class="navbar-brand" href="../main_page">
         <img src="{% static 'img/wallapop-logo.jpg' %}"/>
         <span>MyWallapop</span>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   
+
+  <!--
+
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -24,22 +27,34 @@
             </a>
           </li>
         </ul>
+      -->
         
-        <form class="form-inline my-2">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <!-- Comento el form, no farà falta i ho faré per JavaScript  <form class="form-inline my-2"> 
+          <div class="my-2">
+            <input class="form-control mr-sm-2" type="text" placeholder="Filtro" onChange="filterProducts()">
+          </div>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> 
+        </form>-->
 
         <!-- login button -->
-        <li class="nav-item dropdown my-2">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="login-icon" src= "{% static 'img/empty-avatar.jpg' %}">
+        <li  class="nav-item dropdown my-2">
+          <div class="login-icon" >
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">
+              <img src= "{% static 'img/empty-avatar.jpg' %}">
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-menu">
+              <!-- mostro si o no, en funcio de session -->
+              {% if not usersession %}
+                <a onClick="show_register()" class="dropdown-item">Regístrate</a>
+                <div class="dropdown-divider"></div>
+                <a onClick="show_login()" class="dropdown-item">Log in</a>
+              {% else %}
+                <a href="../userpanel" class="dropdown-item">Panel de Usuario</a>
+                <div class="dropdown-divider"></div>
+                <a href="../logout_user" class="dropdown-item">Log out</a>
+              {% endif %}
+
+            </div>
             </div>
         </li>
 

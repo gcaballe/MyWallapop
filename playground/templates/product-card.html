@@ -6,7 +6,7 @@
 
         <a href="{% url 'single_product' product.id %}">
             <img src= "{% static '/img/'|add:product.image %}" />
-            <p>{{ product.id }}</p>
+            <p class="product-name">{{ product.id }}</p>
             <p>{{ product.price }} €</p>
             <p>{{ product.description }}</p>
             <p>{{ product.image }}</p>

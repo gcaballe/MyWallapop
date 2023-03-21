@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}" >
+<form id="form_login_user" action="../login_user/" method="POST">
+    {% csrf_token %}
+    <div class="container">
+      <h1>Log in</h1>
+      <hr>
+  
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="username" name="username" id="username" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Password" name="psw" id="psw" required>
+  
+      <hr>
+  
+      <button type="submit" class="btn registerbtn">Log in</button>
+
+      <button type="button" onClick="hide_login()" class="btn cancelbtn">Cierra</button>
+    </div>
+
+  </form>
