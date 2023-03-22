@@ -1,6 +1,6 @@
 
 
-Autors
+#Autors
 
 Guillem Caballé Tomàs i Marc Fernández Parra
 
