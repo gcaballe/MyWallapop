@@ -1,21 +1,38 @@
 .author-mini {
     display: flex;
-    justify-content: stretch;
     height: 60px;
     width: 100%;
-    margin: 10px;
+    margin: 0px;
 }
 
 .author-mini img{
     
+    margin-left: 210px;
     height: 60px;
+    width: 60px;
     padding: 0px;
     max-width: 60px;
     overflow: auto;
-    margin-right: 30px;
+    
 }
 
 .author-mini p{
     height: 50%;
     margin: 0px;
+}
+
+
+/* css de la pagina de author/x */
+
+.userinfo-card{
+    padding: 20px;
+}
+
+.userinfo-card img {
+    width: 300px;
+    overflow: auto;
+}
+
+.userinfo-card p {
+    font-size: 3em;
 }

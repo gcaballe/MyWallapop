@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(177, 246, 177);
+    background-color:  #13c1adc4;
 }
 
 .mylogo img {
@@ -11,6 +11,7 @@ body{
 .mylogo span {
     font-size: 50px;
     margin: 20px;
+    color: beige;
     vertical-align: middle;
     font-family: "Tahoma";
 }
@@ -34,4 +35,24 @@ nav .login-icon img{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+
+/* disable los estilos de <a>*/
+a:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+a:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+#imgAvatar {
+    width: 100%;
+    overflow: auto;
 }

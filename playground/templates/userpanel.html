@@ -15,6 +15,8 @@
         <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" >
         <link rel="stylesheet" type="text/css" href="{% static '/css/author.css' %}" >
         <link rel="stylesheet" type="text/css" href="{% static '/css/product.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static '/css/comment.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}" >
             
         <script src="{% static '/js/main.js' %}"></script>
     </head>
@@ -22,15 +24,109 @@
 
         {% include 'navbar.html' %}
 
-        
-        {{user.username}}
-        {{user.password}}
+        <div class="row m-4">
+            <div class='col-3'>
 
+                <h1>Tus datos de cuenta</h1>
+                
+                <!-- formulario -->
+                <form id="form_userdata" method="POST" action="../modify_userinfo/" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" name="inputPassword" id="inputPassword" value="{{user.password}}" placeholder="Password">
+                        <small id="passwordHelp" class="form-text text-muted">No te pedimos repetir password. Ve con cuidado!</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescripcion">Descripción</label>
+                        <input type="text" class="form-control" name="inputDescripcion" id="inputDescripcion" value="{{user.description}}" placeholder="Descripción">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCity">Localidad</label>
+                        <input type="text" class="form-control" name="inputCity" id="inputCity" value="{{user.city}}" placeholder="Localidad">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAvatar">Avatar</label>
+                        <br>
+                        <input onChange="carregarImatgeAvatar()" type='file' value="{{user.avatar}}" name="inputAvatar" id="inputAvatar" />
+                        <img id="imgAvatar" src="{% static '/img/'|add:user.avatar %}" alt="your image" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+               
+            
+            </div>
+            <div class="col-9">
+                <h1 class="row m-4 justify-content-center">Tus productos</h1>
+                
+                <div class="row">
+                    <div class="col-4">
+                        <table class="table table-dark">
+                            <thead><tr>
+                                <th scope="row">#</th>
+                                <th scope="row">Nombre</th>
+                                <th scope="row">Precio</th>
+                            </tr></thead>
+                            <tbody>
+                                {% for p in products %}
+                                <tr onClick="selectProduct(this)" class="product-row">
+                                    <th scope="row">{{ forloop.counter }}</th>
+                                    <td>{{ p.name }}</td>
+                                    <td>{{ p.price }} €</td>
+                                    <td class="d-none">{{p.image}}</td>
+                                    <td class="d-none">{{p.description}}</td>
+                                    <td class="d-none">{{p.id}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-6">
+                                <button onClick="emptyProductForm()" type="button" class="btn btn-primary">Nuevo</button>
+                            </div>
+                            <div class="col-6">
+                                <button onClick="deleteProduct()" type="button" class="btn btn-danger">Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8">
+
+                        <form id="form_productdata" method="POST" action="../modify_product/" enctype="multipart/form-data">
+                            {% csrf_token %}
         
-        <div class="modal-centerscreen">
-        {% include 'register_form.html' %}
-        {% include 'login_form.html' %}
+                            <div class="form-group">
+                                <label for="inputNombre">Nombre</label>
+                                <input type="text" class="form-control" name="inputNombre" id="inputNombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPrice">Precio</label>
+                                <input type="number" step="0.01" class="form-control" name="inputPrice" id="inputPrice">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputDescripcionProd">Descripción</label>
+                                <input type="text" class="form-control" name="inputDescripcionProd" id="inputDescripcionProd">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputImagen">Imágen</label>
+                                <br>
+                                <input onChange="carregarImatgeProducte()" type='file' name="inputImagen" id="inputImagen" />
+                                <img id="imgProduct" src="#" alt="your image" />
+                            </div>
+
+                            <input type="hidden" id="updateOrNew" name="updateOrNew" value="new"/>
+                            <input type="hidden" id="idProduct" name="idProduct"/>
+        
+                            <button id="submitProductButton" type="submit" class="btn btn-primary">Guardar</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
+
         <!-- { % include 'footer.html' % } TO-DO -->
     </body>
 </html>

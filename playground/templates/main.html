@@ -15,6 +15,8 @@
         <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" >
         <link rel="stylesheet" type="text/css" href="{% static '/css/author.css' %}" >
         <link rel="stylesheet" type="text/css" href="{% static '/css/product.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static '/css/comment.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}" >
             
         <script src="{% static '/js/main.js' %}"></script>
     </head>
@@ -25,7 +27,9 @@
         <div class="products-grid">
         {% for i in products %}
 
-            {% include 'product-card.html' with product=i %}
+            <div class="product-card-hover">
+                {% include 'product-card.html' with product=i %}
+            </div>
 
         {% endfor %}
         </div>

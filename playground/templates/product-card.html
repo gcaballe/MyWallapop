@@ -1,20 +1,18 @@
 {% load static %}
 
-    <div class='product-card'>
-        
-        {% include 'author_mini.html' with author=product.author %}
+<div class='product-card'>
+  <div class="author-mini-hover">
+    {% include 'author_mini.html' with author=product.author %}
+  </div>
+  <div class='product-card-'>
+    <a href="{% url 'single_product' product.id %}">
 
-        <a href="{% url 'single_product' product.id %}">
-            <img src= "{% static '/img/'|add:product.image %}" />
-            <p>{{ product.price }} €</p>
-            <p>{{ product.description }}</p>
-            <p>{{ product.date_created }}</p>
-
-            <div>
-                <p> {{product.comments_len}} comentarios</p>
-                {% for c in product.comments %}
-                    <p>c.text</p>
-                {% endfor %}
-            </div>
-        </a>
-    </div>
+      <p class="product-name">{{ product.name }}</p>
+      <img src= "{% static '/img/'|add:product.image %}" />
+      <p class="product-price">{{ product.price }} €</p>
+      <p class="product-description">{{ product.description }}</p>
+      <p class="product-date">{{ product.date_created }}</p>
+      <p class="product-comments-len"> {{product.comments_len}} comentarios</p>
+    </a>
+  </div>
+</div>

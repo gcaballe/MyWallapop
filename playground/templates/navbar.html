@@ -1,8 +1,8 @@
 {% load static %}
 
 <nav class="navbar  navbar-dark bg-dark">
-    
-    <a class="mylogo" class="navbar-brand" href="../main_page">
+  
+    <a class="mylogo" class="navbar-brand" href="http://localhost:8000/playground/main_page/">
         <img src="{% static 'img/wallapop-logo.jpg' %}"/>
         <span>MyWallapop</span>
     </a>
@@ -49,9 +49,9 @@
                 <div class="dropdown-divider"></div>
                 <a onClick="show_login()" class="dropdown-item">Log in</a>
               {% else %}
-                <a href="../userpanel" class="dropdown-item">Panel de Usuario</a>
+                <a href="http://localhost:8000/playground/userpanel" class="dropdown-item">Panel de Usuario</a>
                 <div class="dropdown-divider"></div>
-                <a href="../logout_user" class="dropdown-item">Log out</a>
+                <a href="http://localhost:8000/playground/logout_user/" class="dropdown-item">Log out</a>
               {% endif %}
 
             </div>

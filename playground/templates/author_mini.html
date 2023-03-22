@@ -1,11 +1,11 @@
 {% load static %}
-
-<div class='author-mini '>
-    
-    <img src="{% static '/img/'|add:author.avatar %}" />
-    <div>
-        <a href="{% url 'author' author.id %}"><p class="username">{{ author.username }}</p></a>
-        <p class="city">{{ author.city }}</p>
+<a href="{% url 'author' author.id %}">
+    <div class='author-mini'>
+        
+            <img src="{% static '/img/'|add:author.avatar %}" />
+            <div>
+                <p class="username">{{ author.username }}</p>
+                <p class="city">{{ author.city }}</p>
+            </div>    
     </div>
-
-</div>
+</a>

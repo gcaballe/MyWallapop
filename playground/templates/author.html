@@ -1,5 +1,67 @@
-<h1>Author page</h1>
-<p>{{author.id}}</p>
-<p>{{author.username}}</p>
-<p>{{author.avatar}}</p>
-<p>{{author.city}}</p>
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    <head>
+        <title>MyWallapop</title>
+        <meta name="author" content="gcaballe & mfernandez">
+        <link rel="icon" type="image/jpg" sizes="32x32" href="{% static '/img/wallapop-logo.jpg' %}">
+
+        <!-- llibreríes de bootstrap i jquery -->        
+        <script src="{% static '/js/jquery-3.6.4.min.js' %}"></script>
+        <script src="{% static '/js/bootstrap.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.css' %}" >
+
+        <!-- css custom nostre -->
+        <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static '/css/author.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static '/css/product.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static '/css/comment.css' %}" >
+        <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}" >
+            
+        <script src="{% static '/js/main.js' %}"></script>
+    </head>
+    <body>
+
+        {% include 'navbar.html' %}
+
+        <div class="row m-4 product-single-block">
+            <div class='col-2 product-card-nohover'>
+
+                <!-- user info -->
+
+                <div class="userinfo-card">
+                    <img src="{% static '/img/'|add:author.avatar %}" />
+                    <p>{{author.city}}</p>
+                </div>
+            
+            </div>
+            <div class="col-10">
+                <h1 class="row m-4 justify-content-center">{{author.username}} tiene {{plen}} productos</h1>
+                
+                    {% for c in comments %}
+                    <div class="row justify-content-center">
+                        {% include 'comment-card.html' with comment=c author=c.author %}
+                    </div>
+                    {% endfor %}
+                
+                    <div class="mt-4 ml-1 row justify-content-center">
+                        
+                        <div class="products-grid">
+                            {% for i in products %}
+                    
+                                {% include 'product-card.html' with product=i %}
+                    
+                            {% endfor %}
+                            </div>
+
+                    </div>
+            </div>
+        </div>
+
+        <!-- { % include 'footer.html' % } TO-DO -->
+    </body>
+</html>
+
+
+
+

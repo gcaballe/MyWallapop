@@ -16,7 +16,7 @@ class User(models.Model):
 
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, unique=True)
     price = models.FloatField()
     description = models.CharField(max_length=300)
     image = models.CharField(max_length=100)
@@ -34,4 +34,5 @@ class Comment(models.Model):
     id = models.AutoField(primary_key=True)
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     product = models.ForeignKey(Product, null=True, on_delete=models.SET_NULL)
-    text = models.CharField(max_length=100)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    text = models.CharField(max_length=250)

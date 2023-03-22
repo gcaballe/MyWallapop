@@ -14,5 +14,12 @@ urlpatterns = [
     path('register_user/', views.register_user),
     path('login_user/', views.login_user),
     path('logout_user/', views.logout_user),
+    
+    #userpanel stuff
     path('userpanel/', views.userpanel),
+    path('modify_userinfo/', views.modify_userinfo),
+    path('modify_product/', views.modify_product),
+
+    #comment stuff
+    path('insert_comment/', views.insert_comment),
 ]
